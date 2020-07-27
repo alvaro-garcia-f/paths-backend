@@ -13,26 +13,36 @@ Demo: coming soon
 
 ## USERS
 
-| KEY        | TYPE         | REFERENCE | REQUIRED | VALIDATION     |
-|------------|--------------|-----------|----------|----------------|
-| name       | string       |           | NO       |                |
-| username   | string       |           | YES      |                |
-| email      | string       |           | YES      | RegExp, Unique |
-| password   | string       |           | YES      |                |
+| KEY        | TYPE         | REFERENCE | REQUIRED | VALIDATION       |
+|------------|--------------|-----------|----------|------------------|
+| name       | string       |           | NO       |                  |
+| email      | string       |           | YES      | RegExp, Unique   |
+| password   | string       |           | YES      |                  |
+| role       | enum         |           | YES      | Teacher, Student |
 ...
 
 ## PATHS
 
-| KEY         | TYPE         | REFERENCE | REQUIRED | VALIDATION     |
-|-------------|--------------|-----------|----------|----------------|
-| title       | string       |           | YES      |                |
-| description | string       |           | YES      |                |
+| KEY         | TYPE          | REFERENCE | REQUIRED | VALIDATION        |
+|-------------|---------------|-----------|----------|-------------------|
+| title       | string        |           | YES      |                   |
+| description | string        |           | YES      |                   |
+| teacher     | ObjectId      | User      | YES      | { role: teacher } |
+| students    | [ ObjectId ]  | User      |          | { role: student } |
 ...
 
 ## STAGES
 
 | KEY    | TYPE         | REFERENCE | REQUIRED | VALIDATION     |
 |--------|--------------|-----------|----------|----------------|
+...
+
+## LESSONS
+
+| KEY    | TYPE           | REFERENCE | REQUIRED | VALIDATION                         |
+|--------|----------------|-----------|----------|------------------------------------|
+| title  | string         |           | YES      |                                    |
+| slides | [ { Object } ] |           | YES      | { slide: number, content: string } |
 ...
 
 ## QUESTIONS
