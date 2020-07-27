@@ -1,4 +1,4 @@
-# IDDLE 
+# PATHS
 ## DESCRIPTION
 Paths is educational platform, focused on offering a flexible set of content and support material to help in the process of learning a group of skills.
 
