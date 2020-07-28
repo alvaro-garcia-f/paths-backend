@@ -1,0 +1,42 @@
+@base_url = http://localhost:3000/api
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJpYXQiOjE1OTU5MzgxNTMsImV4cCI6MTU5NTk0MTc1M30.3IoN53aT2nvcF8E-ulbjb0pFmlM0I6CY95ZGPlwPZQQ
+
+// USER ROUTES
+
+// Teacher login
+POST {{base_url}}/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test@teacher.com",
+    "password": "123456"
+}
+###
+
+// Student login
+POST {{base_url}}/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test@student.com",
+    "password": "123456"
+}
+###
+
+// Create student
+POST {{base_url}}/users/student HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "name": "Student 2",
+    "email": "student@student.com",
+    "password": "123456"
+}
+###
+
+// Get all students
+GET {{base_url}}/users/students HTTP/1.1
+token: {{token}}
+
