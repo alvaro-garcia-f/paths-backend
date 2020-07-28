@@ -57,13 +57,13 @@ Demo: coming soon
 
 | METHOD | URL             | AUTH | FUNCTION                 |
 |--------|-----------------|------|--------------------------|
-| POST   | '/auth/student' | YES  | Create a student account |
 | POST   | '/auth/login'   | NO   | Authenticate a user      |
 
 ## USERS ENDPOINTS
 
 | METHOD | URL               | AUTH | FUNCTION                    |
 |--------|-------------------|------|-----------------------------|
+| POST   | '/users/student'  | YES  | Create a student account    |
 ...
 
 ## PATHS ENDPOINTS
