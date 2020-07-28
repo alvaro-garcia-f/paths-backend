@@ -55,10 +55,10 @@ Demo: coming soon
 
 ## AUTHENTICATION ENDPOINTS
 
-| METHOD | URL            | AUTH | FUNCTION             |
-|--------|----------------|------|----------------------|
-| POST   | '/auth/signup' | NO   | Create a new account |
-| POST   | '/auth/login'  | NO   | Authenticate a user  |
+| METHOD | URL             | AUTH | FUNCTION                 |
+|--------|-----------------|------|--------------------------|
+| POST   | '/auth/student' | YES  | Create a student account |
+| POST   | '/auth/login'   | NO   | Authenticate a user      |
 
 ## USERS ENDPOINTS
 
@@ -76,6 +76,14 @@ Demo: coming soon
 
 | METHOD | URL                   | AUTH | FUNCTION                                 |
 |--------|-----------------------|------|------------------------------------------|
+...
+
+## LESSON ENDPOINTS
+
+| METHOD | URL                   | AUTH | FUNCTION                                 |
+|--------|-----------------------|------|------------------------------------------|
+| GET    | '/lessons'            | YES  | List all lessons                         |
+| POST   | '/lessons'            | YES  | Create new lesson                        |
 ...
 
 ## QUESTIONS ENDPOINTS
