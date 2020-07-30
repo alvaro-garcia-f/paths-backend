@@ -15,8 +15,7 @@ function createStudent (req, res) {
     .create({
       name: req.body.name,
       email: req.body.email,
-      password: hashedPassword,
-      role: 'student'
+      password: hashedPassword
     })
     .then(user => {
       const userData = { email: user.email}

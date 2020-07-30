@@ -1,7 +1,6 @@
 @base_url = http://localhost:3000/api
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJpYXQiOjE1OTYxMDg4NTMsImV4cCI6MTU5NjExMjQ1M30.fgDAnFlSuXXZTxa8yRj_vW-de1TFJL3iZWQx1se2WgA
-
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAc3R1ZGVudC5jb20iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTU5NjE0MjMwOCwiZXhwIjoxNTk2MTQ1OTA4fQ.LAQXEewQoXmwq68N50RzupQ326EQ3oFekOLfELJRZ-w
 // USER ROUTES
 
 // Teacher login
@@ -30,8 +29,8 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "Student 2",
-    "email": "student@student.com",
+    "name": "Teacher Auth",
+    "email": "auth@student.com",
     "password": "123456"
 }
 ###

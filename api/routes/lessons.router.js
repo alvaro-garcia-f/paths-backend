@@ -1,6 +1,9 @@
 const router = require ('express').Router()
 
-const { authUser } = require ('../utils')
+const { 
+  authUser,
+  authTeacher
+} = require ('../utils')
 
 const {
   listLessons,
@@ -11,6 +14,6 @@ const {
 router
   .get ('/', authUser, listLessons)
   .get ('/:id', authUser, getLesson)
-  .post ('/', authUser, createLesson)
+  .post ('/', authTeacher, createLesson)
 
 module.exports = router

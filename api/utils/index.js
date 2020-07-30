@@ -21,6 +21,30 @@ function authUser (req, res, next) {
   }
 }
 
+function authTeacher (req, res, next) {
+  if (!req.headers.token) {
+    res.status(403).json({ error: 'No Token found' })
+  } else {
+    try {
+      const decodedToken = jwt.verify(req.headers.token, process.env.SECRET)
+
+      UserModel
+      .findOne({ email: decodedToken.email })
+      .then(user => {
+          if (user.role !== 'teacher') { 
+            res.status(403).json({ error: 'User not authorized'}) 
+          } else {
+            res.locals.user = user
+            next()
+          }
+        })
+    } catch (error) {
+      res.status(403).json({ error: `Token not valid + ${error}` })
+    }
+  }
+}
+
 module.exports = {
-  authUser
+  authUser,
+  authTeacher
 }

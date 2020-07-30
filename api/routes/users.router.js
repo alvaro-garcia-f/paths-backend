@@ -1,6 +1,6 @@
 const router = require ('express').Router()
 
-const { authUser } = require ('../utils')
+const { authTeacher } = require ('../utils')
 
 const {
   createStudent,
@@ -11,9 +11,9 @@ const {
 
 
 router
-  .get ('/students', authUser, getStudents)
-  .post ('/student', authUser, createStudent)
-  .put ('/student/:id', authUser, editStudent)
-  .delete ('/student/:id', authUser, deleteStudent)
+  .get ('/students', authTeacher, getStudents)
+  .post ('/student', authTeacher, createStudent)
+  .put ('/student/:id', authTeacher, editStudent)
+  .delete ('/student/:id', authTeacher, deleteStudent)
 
 module.exports = router
