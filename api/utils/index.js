@@ -7,8 +7,6 @@ function authUser (req, res, next) {
     res.status(403).json({ error: 'No Token found' })
   } else {
     try {
-      console.log('jwt.verify(req.headers.token, process.env.SECRET)')
-
       const decodedToken = jwt.verify(req.headers.token, process.env.SECRET)
 
       UserModel
