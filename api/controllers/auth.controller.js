@@ -4,8 +4,6 @@ const jwt = require('jsonwebtoken')
 
 function logIn (req, res) {
 
-  console.log('hola')
-
   UserModel
     .findOne({ email: req.body.email })
     .then(user => {
