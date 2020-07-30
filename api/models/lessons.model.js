@@ -5,6 +5,9 @@ const lessonSchema = new mongoose.Schema ({
     type: String,
     required: [true, 'Title required']
   },
+  url: {
+    type: String
+  },
   content: {
     type: [String]
   }

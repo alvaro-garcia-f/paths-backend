@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJpYXQiOjE1OTU5MzgxNTMsImV4cCI6MTU5NTk0MTc1M30.3IoN53aT2nvcF8E-ulbjb0pFmlM0I6CY95ZGPlwPZQQ
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJpYXQiOjE1OTYxMDg4NTMsImV4cCI6MTU5NjExMjQ1M30.fgDAnFlSuXXZTxa8yRj_vW-de1TFJL3iZWQx1se2WgA
 
 // USER ROUTES
 
@@ -38,5 +38,10 @@ token: {{token}}
 
 // Get all students
 GET {{base_url}}/users/students HTTP/1.1
+token: {{token}}
+###
+
+// Delete student
+DELETE {{base_url}}/users/student/5f22ac7f23474e1c285ca54b
 token: {{token}}
 

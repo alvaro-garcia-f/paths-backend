@@ -22,6 +22,7 @@ function createLesson (req, res) {
   LessonModel
     .create({
       title: req.body.title,
+      url: req.body.url,
       content: req.body.content
     })
     .then(lesson => { res.json(lesson) })
