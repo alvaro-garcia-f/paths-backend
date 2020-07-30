@@ -25,6 +25,13 @@ function createStudent (req, res) {
     .catch(err => res.status(403).json({ error: err }))
 }
 
+function editStudent (req, res) {
+  UserModel
+    .findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
 function deleteStudent (req, res) {
   UserModel
     .findByIdAndDelete(req.params.id)
@@ -35,5 +42,6 @@ function deleteStudent (req, res) {
 module.exports = {
   getStudents,
   createStudent,
+  editStudent,
   deleteStudent
 }
