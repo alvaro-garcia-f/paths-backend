@@ -29,8 +29,8 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "Teacher Auth",
-    "email": "auth@student.com",
+    "name": "Student Auth 2",
+    "email": "auth2@student2.com",
     "password": "123456"
 }
 ###

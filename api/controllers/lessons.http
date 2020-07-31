@@ -1,5 +1,5 @@
 @base_url = http://localhost:3000/api/lessons
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAc3R1ZGVudC5jb20iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTU5NjE0MjMwOCwiZXhwIjoxNTk2MTQ1OTA4fQ.LAQXEewQoXmwq68N50RzupQ326EQ3oFekOLfELJRZ-w
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5NjIwNzc2NiwiZXhwIjoxNTk2MjExMzY2fQ.n-EbYW2SOQOjibr1PaJJoUzqq7-IsDIkIKvVHYcNXeI
 
 //list lessons
 GET {{base_url}} HTTP/1.1
@@ -21,3 +21,25 @@ token: {{token}}
   "content": ["slide 1", "slide 2", "slide 3"]
 }
 ###
+
+//QUIZZES
+
+GET {{base_url}}/5f2015ad0fdfc02fdfabea95/quiz
+Content-Type: application/json
+token: {{token}}
+###
+
+POST {{base_url}}/5f2015ad0fdfc02fdfabea95/quiz HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+  "question": "This is a test",
+  "options": {
+    "a": "Answer A",
+    "b": "Answer B",
+    "c": "Answer C",
+    "d": "Answer D"
+  },
+  "answer": "a"
+}

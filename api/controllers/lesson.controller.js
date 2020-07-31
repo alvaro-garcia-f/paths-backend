@@ -1,5 +1,6 @@
 const LessonModel = require ('../models/lessons.model')
 
+// LESSONS
 function listLessons (req, res) {
   LessonModel
     .find()
@@ -29,8 +30,31 @@ function createLesson (req, res) {
     .catch(err => res.status(403).json({ error: err }))
 }
 
+// QUIZZES
+function getQuiz (req, res) {
+  LessonModel
+    .findById(req.params.id)
+    .then(lesson =>
+      res.json(lesson.quiz))
+    .catch(err => res.status(403).json({ error: err }))
+}
+
+function addQuestion (req, res) {
+  LessonModel
+    .findById(req.params.id)
+    .then(lesson => {
+      lesson.quiz.push(req.body)
+      lesson.save()
+        .then(question => { res.json(question) })
+        .catch(err => console.error(err))
+    })
+    .catch(err => res.status(403).json({ error: err }))
+}
+
 module.exports = {
   listLessons,
   getLesson,
-  createLesson
+  createLesson,
+  getQuiz,
+  addQuestion
 }
