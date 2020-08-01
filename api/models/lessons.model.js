@@ -10,12 +10,20 @@ const questionSchema = new mongoose.Schema ({
     enum: ['a', 'b', 'c', 'd'],
     required: [true, 'Answer required']
   },
-  options: [{
-    a: String,
-    b: String,
-    c: String,
-    d: String
-  }]
+  options: {
+    a: {
+      type: String
+    },
+    b: {
+      type: String
+    },
+    c: {
+      type: String
+    },  
+    d: {
+      type: String
+    }
+  }
 })
 
 const lessonSchema = new mongoose.Schema ({

@@ -1,5 +1,5 @@
 @base_url = http://localhost:3000/api/lessons
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5NjIwNzc2NiwiZXhwIjoxNTk2MjExMzY2fQ.n-EbYW2SOQOjibr1PaJJoUzqq7-IsDIkIKvVHYcNXeI
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5NjI3MzUzNCwiZXhwIjoxNTk2Mjc3MTM0fQ.PMGtUulcafZNeYQOQyJntrT9zbwX7lHg5wLrUdX7xcE
 
 //list lessons
 GET {{base_url}} HTTP/1.1
