@@ -43,6 +43,7 @@ Demo: coming soon
 |--------|----------------|-----------|----------|------------------------------------|
 | title  | string         |           | YES      |                                    |
 | slides | [ { Object } ] |           | YES      | { slide: number, content: string } |
+| quiz   | [ { Object } ] |           | NO       | 
 ...
 
 ## QUESTIONS
@@ -61,15 +62,18 @@ Demo: coming soon
 
 ## USERS ENDPOINTS
 
-| METHOD | URL               | AUTH | FUNCTION                    |
-|--------|-------------------|------|-----------------------------|
-| POST   | '/users/student'  | YES  | Create a student account    |
+| METHOD | URL                  | AUTH    | FUNCTION                    |
+|--------|----------------------|---------|-----------------------------|
+| GET    | '/users/students'    | Teacher | List all students           |
+| POST   | '/users/student'     | Teacher | Create a student account    |
+| PUT    | '/users/student/:id' | Teacher | Update a student account    |
+| DELETE | '/users/student/:id' | Teacher | Delete a student account    |
 ...
 
 ## PATHS ENDPOINTS
 
-| METHOD | URL                                       | AUTH | FUNCTION                                 |
-|--------|-------------------------------------------|------|------------------------------------------|
+| METHOD | URL               | AUTH | FUNCTION                          |
+|--------|-------------------|------|-----------------------------------|
 ...
 
 ## STAGES ENDPOINTS
@@ -80,14 +84,18 @@ Demo: coming soon
 
 ## LESSON ENDPOINTS
 
-| METHOD | URL                   | AUTH | FUNCTION                                 |
-|--------|-----------------------|------|------------------------------------------|
-| GET    | '/lessons'            | YES  | List all lessons                         |
-| POST   | '/lessons'            | YES  | Create new lesson                        |
+| METHOD | URL            | AUTH    | FUNCTION                   |
+|--------|----------------|---------|----------------------------|
+| GET    | '/lessons'     | YES     | List all lessons           |
+| GET    | '/lessons/:id' | YES     | Get a lessons              |
+| POST   | '/lessons'     | Teacher | Create new lesson          |
 ...
 
 ## QUESTIONS ENDPOINTS
 
-| METHOD | URL                   | AUTH | FUNCTION                                 |
-|--------|-----------------------|------|------------------------------------------|
+| METHOD | URL                          | AUTH    | FUNCTION                              |
+|--------|------------------------------|---------|---------------------------------------|
+| GET    | 'lessons/:lessonId/quiz'     | YES     | Lists all questions of a lesson       |
+| GET    | 'lessons/:lessonId/quiz/:id' | YES     | Gets a question                       |
+| POST   | 'lessons/:lessonId/quiz'     | Teacher | Creates a question                    |
 ...
