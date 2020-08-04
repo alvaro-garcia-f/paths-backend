@@ -20,7 +20,11 @@ const userSchema = new mongoose.Schema ({
     type: String,
     default: 'student',
     enum: ['teacher', 'student']
-  }
+  },
+  completed: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'lesson'
+  }]
 })
 
 const userModel = mongoose.model ('user', userSchema)

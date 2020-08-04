@@ -38,9 +38,22 @@ function deleteStudent (req, res) {
     .catch(err => console.error(err))
 }
 
+function completeLesson (req, res) {
+  UserModel
+    .findById(res.locals.user._id)
+    .then(user => {
+      user.completed.push(req.params.id)
+      user
+        .save()
+        .then(response => res.json(response))
+    })
+    .catch(err => console.error(err))
+}
+
 module.exports = {
   getStudents,
   createStudent,
   editStudent,
+  completeLesson,
   deleteStudent
 }
