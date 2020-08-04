@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 
 function getQuiz (req, res) {
   QuestionModel
-    .find({ lesson: req.params.id })
+    .find({ lesson: req.params.lessonId })
+    .populate('quiz')
     .then(quiz =>
       res.json(quiz))
     .catch(err => res.status(403).json({ error: err }))
@@ -20,8 +21,6 @@ function addQuestion (req, res) {
       LessonModel
         .findById(question.lesson)
         .then(lesson => {
-          console.log(lesson)
-
           lesson.quiz.push(question._id)
           lesson.save()
         })
