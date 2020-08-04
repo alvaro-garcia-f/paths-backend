@@ -1,5 +1,5 @@
 @base_url = http://localhost:3000/api/lessons
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5NjI3MzUzNCwiZXhwIjoxNTk2Mjc3MTM0fQ.PMGtUulcafZNeYQOQyJntrT9zbwX7lHg5wLrUdX7xcE
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5NjUwNTcwMSwiZXhwIjoxNTk2NTA5MzAxfQ.h5Dn4E5_KLML_VzF5ywXYl3j-MPd5AV04OdXho42XRo
 
 //list lessons
 GET {{base_url}} HTTP/1.1
@@ -17,8 +17,9 @@ Content-Type: application/json
 token: {{token}}
 
 {
-  "title": "Lesson 2",
-  "content": ["slide 1", "slide 2", "slide 3"]
+  "title": "L1. Introduction",
+  "url": "<iframe src='https://docs.google.com/presentation/d/e/2PACX-1vSvEPoIeg-SFlqUwZDQvD4Eht3_ItUTLD2ycqtxX_PRAj0kdu4oPGQV4EwjJUpGyRGUi-F8_SM58Q6v/embed?start=false&loop=false&delayms=3000' frameborder='0' width='960' height='569' allowfullscreen='true' mozallowfullscreen='true' webkitallowfullscreen='true'></iframe>",
+  "quiz": []
 }
 ###
 

@@ -1,6 +1,6 @@
 const mongoose = require ('mongoose')
 
-const questionSchema = new mongoose.Schema ({
+/*const questionSchema = new mongoose.Schema ({
   question: {
     type: String,
     required: [true, 'Question required']
@@ -24,7 +24,7 @@ const questionSchema = new mongoose.Schema ({
       type: String
     }
   }
-})
+})*/
 
 const lessonSchema = new mongoose.Schema ({
   title: {
@@ -37,7 +37,11 @@ const lessonSchema = new mongoose.Schema ({
   content: {
     type: [String]
   },
-  quiz: [questionSchema]
+  quiz: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'question'
+  }]
+//  quiz: [questionSchema]
 })
 
 const lessonModel = mongoose.model ('lesson', lessonSchema)

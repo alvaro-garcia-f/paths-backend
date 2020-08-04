@@ -31,6 +31,7 @@ function createLesson (req, res) {
 }
 
 // QUIZZES
+/*
 function getQuiz (req, res) {
   LessonModel
     .findById(req.params.id)
@@ -50,11 +51,11 @@ function addQuestion (req, res) {
     })
     .catch(err => res.status(403).json({ error: err }))
 }
-
+*/
 module.exports = {
   listLessons,
   getLesson,
-  createLesson,
-  getQuiz,
-  addQuestion
+  createLesson //,
+//  getQuiz,
+//  addQuestion
 }

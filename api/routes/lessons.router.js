@@ -8,16 +8,16 @@ const {
 const {
   listLessons,
   getLesson,
-  getQuiz,
+  //getQuiz,
   createLesson,
-  addQuestion
+  //addQuestion
 } = require ('../controllers/lesson.controller')
 
 router
   .get ('/', authUser, listLessons)
   .get ('/:id', authUser, getLesson)
-  .get ('/:id/quiz', authUser, getQuiz)
+ // .get ('/:id/quiz', authUser, getQuiz)
   .post ('/', authTeacher, createLesson)
-  .post ('/:id/quiz', authTeacher, addQuestion)
+//  .post ('/:id/quiz', authTeacher, addQuestion)
 
 module.exports = router
