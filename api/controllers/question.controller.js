@@ -22,7 +22,9 @@ function addQuestion (req, res) {
         .findById(question.lesson)
         .then(lesson => {
           lesson.quiz.push(question._id)
-          lesson.save()
+          lesson
+            .save()
+            .then(response => res.json(response))
         })
         .catch(err => res.status(403).json({ error: err }))
     })
