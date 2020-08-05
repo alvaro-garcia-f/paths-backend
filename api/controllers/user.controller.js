@@ -1,6 +1,13 @@
 const UserModel = require ('../models/users.model')
 const bcrypt = require ('bcrypt')
 
+function getProfile (req, res) {
+  UserModel
+    .findById(res.locals.user._id)
+    .then(user => { res.json(user) })
+    .catch(err => res.status(403).json({ error: err }))
+}
+
 function getStudents (req, res) {
   UserModel
     .find({ role: 'student'})
@@ -51,6 +58,7 @@ function completeLesson (req, res) {
 }
 
 module.exports = {
+  getProfile,
   getStudents,
   createStudent,
   editStudent,

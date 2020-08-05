@@ -3,8 +3,9 @@ const router = require ('express').Router()
 const { authTeacher, authUser } = require ('../utils')
 
 const {
-  createStudent,
+  getProfile,
   getStudents,
+  createStudent,
   editStudent,
   completeLesson,
   deleteStudent
@@ -12,6 +13,7 @@ const {
 
 
 router
+  .get ('/me', authUser, getProfile)
   .get ('/students', authTeacher, getStudents)
   .post ('/student', authTeacher, createStudent)
   .put ('/student/:id', authTeacher, editStudent)
