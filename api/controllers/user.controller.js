@@ -13,6 +13,7 @@ function getProfile (req, res) {
 function getStudents (req, res) {
   UserModel
     .find({ role: 'student'})
+    .populate('completed')
     .then(students => { res.json(students) })
     .catch(err => res.status(403).json({ error: err }))
 }
