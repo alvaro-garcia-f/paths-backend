@@ -4,6 +4,7 @@ const bcrypt = require ('bcrypt')
 function getProfile (req, res) {
   UserModel
     .findById(res.locals.user._id)
+    .populate('completed')
     .then(user => { res.json(user) })
     .catch(err => res.status(403).json({ error: err }))
 }
