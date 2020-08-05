@@ -6,10 +6,7 @@ const {
 } = require ('../utils')
 
 const {
-  //listLessons,
-  //getLesson,
   getQuiz,
-  //createLesson,
   addQuestion
 } = require ('../controllers/question.controller')
 
