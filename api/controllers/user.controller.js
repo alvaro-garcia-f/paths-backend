@@ -1,5 +1,6 @@
 const UserModel = require ('../models/users.model')
 const bcrypt = require ('bcrypt')
+const mongoose = require ('mongoose')
 
 function getProfile (req, res) {
   UserModel
@@ -50,10 +51,12 @@ function completeLesson (req, res) {
   UserModel
     .findById(res.locals.user._id)
     .then(user => {
-      user.completed.push(req.params.id)
-      user
-        .save()
-        .then(response => res.json(response))
+      if(!user.completed.includes(mongoose.Types.ObjectId(req.params.id))) {
+        user.completed.push(req.params.id)
+        user
+          .save()
+          .then(response => res.json(response))
+      }
     })
     .catch(err => console.error(err))
 }

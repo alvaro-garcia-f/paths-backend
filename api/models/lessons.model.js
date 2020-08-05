@@ -14,8 +14,10 @@ const lessonSchema = new mongoose.Schema ({
   quiz: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'question'
-  }]
-
+  }],
+  order: {
+    type: Number
+  }
 })
 
 const lessonModel = mongoose.model ('lesson', lessonSchema)
