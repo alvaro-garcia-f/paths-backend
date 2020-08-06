@@ -15,6 +15,26 @@ function addAnswer (req, res) {
     .catch(err => res.status(403).json({ error: err }))
 }
 
+function getOwnResults (req, res) {
+  ResultModel
+    .find({ user: res.locals.user._id })
+    .then(results => {
+      res.json(results)
+    })
+    .catch(err => res.status(403).json({ error: err }))
+}
+
+function getResults (req, res) {
+  ResultModel
+    .find({ user: req.params.id })
+    .then(results => {
+      res.json(results)
+    })
+    .catch(err => res.status(403).json({ error: err }))
+}
+
 module.exports = {
-  addAnswer
+  addAnswer,
+  getOwnResults,
+  getResults
 }

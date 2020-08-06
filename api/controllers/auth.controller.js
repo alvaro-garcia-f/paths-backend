@@ -8,7 +8,6 @@ function logIn (req, res) {
     .findOne({ email: req.body.email })
     .select('+password')
     .then(user => {
-      console.log(user)
       if (!user) { 
         res.json({ error: 'Email and/or password incorrect' }) 
       } else {

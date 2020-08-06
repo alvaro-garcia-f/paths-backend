@@ -1,5 +1,13 @@
 @base_url = http://localhost:3000/api/results
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN0dWRlbnQ2QHN0dWRlbnQuY29tIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE1OTY2Njg3NDEsImV4cCI6MTU5NjY3MjM0MX0.BuXWvOBpXqSZip8fz3OF0998XTnqGmOObDTKvSTOAC8
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5NjY3NjAwMCwiZXhwIjoxNTk2Njc5NjAwfQ.CdGGQ8siBH5tToliLUU69bvN-HLk0u8gh0NAV-ejVyk
+
+GET {{base_url}}/user/me HTTP/1.1
+token: {{token}}
+###
+
+GET {{base_url}}/user/5f22dbe9152fbf604a2baa90 HTTP/1.1
+token: {{token}}
+###
 
 POST {{base_url}} HTTP/1.1
 Content-Type: application/json
