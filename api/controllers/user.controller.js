@@ -18,6 +18,13 @@ function getStudents (req, res) {
     .catch(err => res.status(403).json({ error: err }))
 }
 
+function getStudent (req, res) {
+  UserModel
+    .findById(req.params.id)
+    .then(student => { res.json(student) })
+    .catch(err => res.status(403).json({ error: err }))
+}
+
 function createStudent (req, res) {
   const hashedPassword = bcrypt.hashSync(req.body.password, 10)
 
@@ -65,6 +72,7 @@ function completeLesson (req, res) {
 module.exports = {
   getProfile,
   getStudents,
+  getStudent,
   createStudent,
   editStudent,
   completeLesson,

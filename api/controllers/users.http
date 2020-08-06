@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN0dWRlbnQ2QHN0dWRlbnQuY29tIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE1OTY2NzU4OTgsImV4cCI6MTU5NjY3OTQ5OH0.IP1KUw5CUG9PjxHf1ysQS4_YdcQcR5qKtnELtD9Jhy8
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5NjcyMDY3NywiZXhwIjoxNTk2NzI0Mjc3fQ.-PMHwYEYgkssUmg2VhV4h-91naoQ0eTtdpA4a2AuH-4
 // USER ROUTES
 
 // Teacher login
@@ -27,6 +27,9 @@ Content-Type: application/json
 GET {{base_url}}/users/me HTTP/1.1
 token: {{token}}
 
+###
+GET {{base_url}}/users/students/5f22dbe9152fbf604a2baa90
+token: {{token}}
 ###
 
 // Create student
