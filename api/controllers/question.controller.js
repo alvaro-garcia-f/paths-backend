@@ -2,6 +2,14 @@ const QuestionModel = require('../models/questions.model')
 const LessonModel = require('../models/lessons.model')
 const mongoose = require('mongoose')
 
+function getQuestion (req, res) {
+  QuestionModel
+    .findById(req.params.id)
+    .then(question =>
+      res.json(question))
+    .catch(err => res.status(403).json({ error: err }))
+}
+
 function getQuiz (req, res) {
   QuestionModel
     .find({ lesson: req.params.lessonId })
@@ -32,6 +40,7 @@ function addQuestion (req, res) {
 }
 
 module.exports = {
+  getQuestion,
   getQuiz,
   addQuestion
 }

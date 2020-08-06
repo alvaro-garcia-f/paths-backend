@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5NjcyMDY3NywiZXhwIjoxNTk2NzI0Mjc3fQ.-PMHwYEYgkssUmg2VhV4h-91naoQ0eTtdpA4a2AuH-4
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVhY2hlci5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTU5Njc0MjkwNSwiZXhwIjoxNTk2NzQ2NTA1fQ.11u6r0rN3MAwqWTAkH1Bgz0G8XdbVYamOwNeoW3ewqs
 // USER ROUTES
 
 // Teacher login
