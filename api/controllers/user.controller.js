@@ -35,7 +35,7 @@ function createStudent (req, res) {
       password: hashedPassword
     })
     .then(user => {
-      const userData = { email: user.email}
+      const userData = { email: user.email }
       res.json( userData )
     })
     .catch(err => res.status(403).json({ error: err }))

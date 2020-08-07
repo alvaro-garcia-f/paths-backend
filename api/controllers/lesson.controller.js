@@ -32,8 +32,24 @@ function createLesson (req, res) {
     .catch(err => res.status(403).json({ error: err }))
 }
 
+function updateOrder (req, res) {
+  const promiseArray = []
+  
+  req.body.forEach((element, i) => {
+    promiseArray.push( LessonModel.findByIdAndUpdate(element, { 'order': i }, { new:true }))
+  })
+
+  Promise
+    .all(promiseArray)
+    .then(response => {
+      res.json(response)
+    })
+    .catch(err => console.error(err))
+}
+
 module.exports = {
   listLessons,
   getLesson,
-  createLesson
+  createLesson,
+  updateOrder
 }
