@@ -8,13 +8,17 @@ const lessonSchema = new mongoose.Schema ({
   url: {
     type: String
   },
-  content: {
-    type: [String]
+  description: {
+    type: String
   },
   quiz: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'question'
   }],
+  lock: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'lesson'
+  },
   order: {
     type: Number
   }

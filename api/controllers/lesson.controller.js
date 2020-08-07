@@ -23,7 +23,8 @@ function createLesson (req, res) {
     .create({
       title: req.body.title,
       url: req.body.url,
-      content: req.body.content
+      description: req.body.description,
+      lock: req.body.lock
     })
     .then(lesson => { res.json(lesson) })
     .catch(err => res.status(403).json({ error: err }))
