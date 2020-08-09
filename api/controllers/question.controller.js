@@ -39,8 +39,21 @@ function addQuestion (req, res) {
     .catch(err => res.status(403).json({ error: err }))
 }
 
+function editQuestion (req, res) {
+  QuestionModel
+  .findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(response => res.json(response))
+  .catch(err => console.error(err))
+}
+
+function deleteQuestion (req, res) {
+
+}
+
 module.exports = {
   getQuestion,
   getQuiz,
-  addQuestion
+  addQuestion,
+  editQuestion,
+  deleteQuestion
 }
