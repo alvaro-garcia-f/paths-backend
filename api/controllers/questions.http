@@ -36,3 +36,7 @@ token: {{token}}
   "option_d": "Pink"
 }
 ###
+
+DELETE {{base_url}}/5f28ce2872f9942afe68a7e3 HTTP/1.1
+token: {{token}}
+###

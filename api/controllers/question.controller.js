@@ -1,5 +1,6 @@
 const QuestionModel = require('../models/questions.model')
 const LessonModel = require('../models/lessons.model')
+const ResultModel = require('../models/results.model')
 const mongoose = require('mongoose')
 
 function getQuestion (req, res) {
@@ -47,7 +48,24 @@ function editQuestion (req, res) {
 }
 
 function deleteQuestion (req, res) {
+  const promiseArray = []
+  
+  promiseArray.push(QuestionModel.findByIdAndDelete(req.params.id))
+  promiseArray.push(ResultModel.remove({ question: req.params.id }))
 
+  LessonModel
+    .find()
+    .then(lessons => {
+      lessons.forEach(lesson => {
+        lesson.quiz = lesson.quiz.filter(question => question != req.params.id)
+        promiseArray.push(lesson.save())
+      })
+      
+      Promise.all(promiseArray)
+        .then(response => res.json(response))
+        .catch(err => console.error(err))
+    })
+  .catch(err => console.error(err))  
 }
 
 module.exports = {
