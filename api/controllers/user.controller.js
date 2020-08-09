@@ -54,6 +54,10 @@ function deleteStudent (req, res) {
   
   promiseArray.push(UserModel.findByIdAndDelete(req.params.id))
   promiseArray.push(ResultsModel.remove({ user: req.params.id }))
+
+  Promise.all(promiseArray)
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
 }
 
 function completeLesson (req, res) {
