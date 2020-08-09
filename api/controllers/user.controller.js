@@ -1,4 +1,5 @@
 const UserModel = require ('../models/users.model')
+const ResultsModel = require ('../models/results.model')
 const bcrypt = require ('bcrypt')
 const mongoose = require ('mongoose')
 
@@ -49,10 +50,10 @@ function editStudent (req, res) {
 }
 
 function deleteStudent (req, res) {
-  UserModel
-    .findByIdAndDelete(req.params.id)
-    .then(response => res.json(response))
-    .catch(err => console.error(err))
+  const promiseArray = []
+  
+  promiseArray.push(UserModel.findByIdAndDelete(req.params.id))
+  promiseArray.push(ResultsModel.remove({ user: req.params.id }))
 }
 
 function completeLesson (req, res) {
