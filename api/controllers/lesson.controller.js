@@ -1,4 +1,7 @@
 const LessonModel = require ('../models/lessons.model')
+const ResultModel = require ('../models/results.model')
+const QuestionModel = require ('../models/questions.model')
+const UserModel = require ('../models/users.model')
 
 function listLessons (req, res) {
   LessonModel
@@ -70,7 +73,24 @@ function updateOrder (req, res) {
 }
 
 function deleteLesson (req, res) {
-  
+  const promiseArray = []
+
+  promiseArray.push(LessonModel.findByIdAndDelete(req.params.id))
+  promiseArray.push(ResultModel.remove({ lesson: req.params.id }))
+  promiseArray.push(QuestionModel.remove({ lesson: req.params.id }))
+
+  UserModel
+    .find()
+    .then(users => {
+      users.forEach(user => {
+        user.completed = user.completed.filter(lesson => lesson != req.params.id)
+        promiseArray.push(user.save())
+      })
+      
+      Promise.all(promiseArray)
+        .then(response => res.json(response))
+        .catch(err => console.error(err))
+    })
 }
 
 module.exports = {
