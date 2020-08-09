@@ -47,6 +47,13 @@ function createLesson (req, res) {
     .catch(err => res.status(403).json({ error: err }))
 }
 
+function editLesson (req, res) {
+  LessonModel
+    .findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
 function updateOrder (req, res) {
   const promiseArray = []
   
@@ -62,10 +69,16 @@ function updateOrder (req, res) {
     .catch(err => console.error(err))
 }
 
+function deleteLesson (req, res) {
+  
+}
+
 module.exports = {
   listLessons,
   getLesson,
   getNextLesson,
   createLesson,
-  updateOrder
+  editLesson,
+  updateOrder,
+  deleteLesson
 }

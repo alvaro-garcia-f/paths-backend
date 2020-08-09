@@ -10,7 +10,9 @@ const {
   getLesson,
   getNextLesson,
   createLesson,
-  updateOrder
+  editLesson,
+  updateOrder,
+  deleteLesson
 } = require ('../controllers/lesson.controller')
 
 router
@@ -18,6 +20,8 @@ router
   .get ('/:id', authUser, getLesson)
   .get ('/:id/next', authUser, getNextLesson)
   .post ('/', authTeacher, createLesson)
+  .put ('/:id', authTeacher, editLesson)
   .put ('/order', authTeacher, updateOrder)
+  .delete ('/:id', authTeacher, deleteLesson)
   
 module.exports = router
