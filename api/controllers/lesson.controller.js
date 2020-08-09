@@ -19,6 +19,21 @@ function getLesson (req, res) {
     .catch(err => res.status(403).json({ error: err }))
 }
 
+function getNextLesson (req, res) {
+  LessonModel
+    .findById(req.params.id)
+    .then(lesson => {
+      
+      LessonModel
+        .find({ order: lesson.order + 1 })
+        .then(next => {
+          res.json(next)
+        })
+        .catch(err => res.status(403).json({ error: err }))
+    })
+    .catch(err => res.status(403).json({ error: err }))
+}
+
 function createLesson (req, res) {
   LessonModel
     .create({
@@ -50,6 +65,7 @@ function updateOrder (req, res) {
 module.exports = {
   listLessons,
   getLesson,
+  getNextLesson,
   createLesson,
   updateOrder
 }

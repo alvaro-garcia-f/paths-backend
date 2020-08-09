@@ -8,6 +8,7 @@ const {
 const {
   listLessons,
   getLesson,
+  getNextLesson,
   createLesson,
   updateOrder
 } = require ('../controllers/lesson.controller')
@@ -15,6 +16,7 @@ const {
 router
   .get ('/', authUser, listLessons)
   .get ('/:id', authUser, getLesson)
+  .get ('/:id/next', authUser, getNextLesson)
   .post ('/', authTeacher, createLesson)
   .put ('/order', authTeacher, updateOrder)
   
