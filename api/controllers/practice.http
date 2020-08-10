@@ -12,8 +12,8 @@ Content-Type: application/json
 token: {{token}}
 
 {
-  "interval": 1,
-  "repetitions": 1,
-  "ef":0
+  "interval": 6,
+  "repetitions": 2,
+  "ef": 2.5
 }
 ###
