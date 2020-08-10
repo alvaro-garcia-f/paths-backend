@@ -1,0 +1,19 @@
+@base_url = http://localhost:3000/api/practice
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxpZGlhQHZpdmVzLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNTk3MTAwMjQxLCJleHAiOjE1OTcxMDM4NDF9.4SlW4UyZOLmNAPPBBuhMl_zmyE0F60VzbPdWSsHSDUQ
+
+//list practices
+GET {{base_url}} HTTP/1.1
+token: {{token}}
+###
+
+//create practice
+PUT {{base_url}}/question/5f31256666d5851d2663cd3f HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+  "interval": 1,
+  "repetitions": 1,
+  "ef":0
+}
+###

@@ -6,7 +6,9 @@ const {
 } = require ('../utils')
 
 const {
-  addAnswer, getResults, getOwnResults
+  addAnswer,
+  getResults,
+  getOwnResults
 } = require ('../controllers/result.controller')
 
 router
