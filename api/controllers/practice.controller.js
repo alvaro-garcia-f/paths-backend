@@ -21,7 +21,16 @@ function getAllIntervals (req,res) {
 
   PracticeModel
     .find({ user: res.locals.user._id})
-    .then(intervals => res.json(intervals))
+    .populate('question')
+    .then(intervals => {
+      intervals.forEach(interval => {
+        interval.interval--
+        interval.save()
+      })
+      console.log(intervals.filter(el => el.interval === 0))
+
+      //res.json(intervals) 
+    })
     .catch(err => console.error(err))
 
 }
