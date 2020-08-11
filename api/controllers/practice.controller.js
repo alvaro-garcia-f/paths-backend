@@ -27,9 +27,7 @@ function getAllIntervals (req,res) {
         interval.interval--
         interval.save()
       })
-      console.log(intervals.filter(el => el.interval === 0))
-
-      //res.json(intervals) 
+      res.json(intervals.filter(el => el.interval === 0))
     })
     .catch(err => console.error(err))
 
