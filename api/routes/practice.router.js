@@ -6,11 +6,13 @@ const {
 
 const {
   getAllIntervals,
+  getQuestionInterval,
   updateQuestionInterval
 } = require('../controllers/practice.controller')
 
 router
   .get('/', authUser, getAllIntervals)
+  .get('/question/:id', authUser, getQuestionInterval)
   .put('/question/:id', authUser, updateQuestionInterval)
 
 module.exports = router
