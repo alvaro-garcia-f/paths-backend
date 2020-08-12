@@ -20,8 +20,8 @@ router
   .get ('/:id', authUser, getLesson)
   .get ('/:id/next', authUser, getNextLesson)
   .post ('/', authTeacher, createLesson)
-  .put ('/:id', authTeacher, editLesson)
   .put ('/order', authTeacher, updateOrder)
+  .put ('/:id', authTeacher, editLesson)
   .delete ('/:id', authTeacher, deleteLesson)
   
 module.exports = router
