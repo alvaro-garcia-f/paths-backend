@@ -20,7 +20,11 @@ const practiceSchema = new mongoose.Schema({
     required: true,
   },
   ef: {
-    type:Number,
+    type: Number,
+    required: true
+  },
+  next: {
+    type: Number,
     required: true
   }
 })

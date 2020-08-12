@@ -2,7 +2,6 @@ const PracticeModel = require ('../models/practice.model')
 
 function updateQuestionInterval (req, res) {
   const data = req.body
-  data.user = res.locals.user._id
   data.question = req.params.id
   data.user = res.locals.user._id
 
@@ -23,11 +22,7 @@ function getAllIntervals (req,res) {
     .find({ user: res.locals.user._id})
     .populate('question')
     .then(intervals => {
-      intervals.forEach(interval => {
-        interval.interval--
-        interval.save()
-      })
-      res.json(intervals.filter(el => el.interval === 0))
+      res.json(intervals.filter(el => Date.now() >= el.next))
     })
     .catch(err => console.error(err))
 
