@@ -61,7 +61,8 @@ function updateOrder (req, res) {
   const promiseArray = []
   
   req.body.forEach((element, i) => {
-    promiseArray.push( LessonModel.findByIdAndUpdate(element, { 'order': i }, { new:true }))
+    console.log(element, i)
+    promiseArray.push( LessonModel.findByIdAndUpdate(element, { order: i }, { new:true }))
   })
 
   Promise
