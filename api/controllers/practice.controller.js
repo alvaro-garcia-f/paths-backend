@@ -21,8 +21,9 @@ function getAllIntervals (req,res) {
   PracticeModel
     .find({ user: res.locals.user._id})
     .populate('question')
+    .sort({ 'next': 1 })
     .then(intervals => {
-      res.json(intervals.filter(el => Date.now() >= el.next))
+      res.json(intervals)
     })
     .catch(err => console.error(err))
 
